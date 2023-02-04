@@ -13,7 +13,7 @@ export const loadPages = async (slug = '') => {
   if (json?.data?.length && slug.length > 0) {
     attributes = json.data[0].attributes;
   }
-
-  const data = mapData([attributes])[0];
+  // nao estou pegando mais o [0] aqui do retorna da função que retorna array de Objeto/ estou pegando la no "Home"
+  const data = mapData([attributes]);
   return data;
 };
