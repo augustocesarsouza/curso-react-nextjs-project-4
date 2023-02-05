@@ -5,6 +5,7 @@ import { GlobalStyles } from '../styles/global-styles';
 
 // app igual o index que carrega as coisa no react
 export default function App({ Component, pageProps }) {
+  console.log(pageProps);
   return (
     <>
       <ThemeProvider theme={theme}>

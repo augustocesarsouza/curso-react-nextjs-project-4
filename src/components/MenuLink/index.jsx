@@ -4,6 +4,7 @@ import * as Styled from './styles';
 //Todos os links
 export const MenuLink = ({ children, link, newTab = false }) => {
   const target = newTab ? '_blank' : '_self';
+
   return (
     <Styled.Container href={link} target={target}>
       {children}

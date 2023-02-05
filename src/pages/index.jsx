@@ -10,7 +10,20 @@ export default function Index({ data = null }) {
 }
 
 export const getStaticProps = async () => {
-  const data = await loadPages(config.defaultSlug);
+  let data;
+
+  try {
+    data = await loadPages(config.defaultSlug);
+  } catch (e) {
+    console.error(e);
+  }
+
+  if (!data || !data.length) {
+    return {
+      notFound: true,
+    };
+  }
+
   return {
     props: {
       data,

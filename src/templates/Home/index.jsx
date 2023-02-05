@@ -3,7 +3,6 @@ import P from 'prop-types';
 import Head from 'next/head';
 
 import { Base } from '../Base';
-import { PageNotFound } from '../PageNotFound';
 import { GridTwoColumns } from '../../components/GridTwoColumns';
 import { GridContent } from '../../components/GridContent';
 import { GridText } from '../../components/GridText';
@@ -11,19 +10,13 @@ import { GridImage } from '../../components/GridImage';
 import config from '../../config';
 
 function Home({ data }) {
-  if (!data || data.length <= 0) {
-    return <PageNotFound />;
-  }
-
   const { menu, sections, footerHtml, slug, title } = data[0];
   const { links, text, link, srcImg } = menu;
 
   return (
     <Base links={links} footerHtml={footerHtml} logoData={{ text, link, srcImg }}>
       <Head>
-        <title>
-          {title} | {config.siteName}
-        </title>
+        <title>{title}</title>
       </Head>
       {sections.map((section, index) => {
         const key = `${slug}-${index}`;
